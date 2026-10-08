@@ -1,0 +1,45 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-2022
+
+    defaults:
+      run:
+        shell: powershell
+        working-directory: M5Convert
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        run: |
+          rustup toolchain install 1.88.0 --profile minimal
+          rustup default 1.88.0
+          rustup target add x86_64-pc-windows-msvc
+          rustc --version
+          cargo --version
+
+      - name: Build M5Convert
+        run: .\scripts\build.ps1
+
+      - name: Build one-click installer
+        run: .\scripts\package.ps1
+
+      - name: Upload M5Convert-Setup.exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: M5Convert-Windows-x64
+          path: M5Convert/dist/M5Convert-Setup.exe
+          if-no-files-found: error
+          compression-level: 0
