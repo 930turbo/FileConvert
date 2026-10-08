@@ -2,8 +2,6 @@
 
 A private, Windows-first local file converter built as a fresh implementation of the workflow requested for this project: select files in Explorer, choose a target format, convert beside the source file, and exit.
 
-This repository is **not a fork of `opencoredev/convt`**. It does not vendor, link to, or require that project's source code. The public product behavior and format coverage were used as a reference; this implementation has its own source tree and deliberately removes the parts that are irrelevant to a single private Windows installation.
-
 ## What was removed
 
 There is no:
