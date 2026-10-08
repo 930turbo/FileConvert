@@ -1,0 +1,45 @@
+[workspace]
+resolver = "3"
+members = [
+  "crates/m5convert-core",
+  "crates/m5convert-cli",
+  "crates/m5convert-shell",
+]
+default-members = [
+  "crates/m5convert-core",
+  "crates/m5convert-cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.88"
+license = "Proprietary"
+
+[workspace.dependencies]
+anyhow = "1.0.100"
+clap = { version = "4.5.48", features = ["derive"] }
+image = { version = "0.25.10", default-features = false, features = ["default-formats"] }
+pdfium-render = "0.9.4"
+resvg = "0.48.1"
+tempfile = "3.23.0"
+thiserror = "2.0.17"
+url = "2.5.7"
+windows = { version = "0.62.2", features = [
+  "Win32_Foundation",
+  "Win32_System_Com",
+  "Win32_System_LibraryLoader",
+  "Win32_System_Ole",
+  "Win32_System_Threading",
+  "Win32_UI_Shell",
+  "Win32_UI_Shell_Common",
+  "Win32_UI_WindowsAndMessaging",
+] }
+windows-core = "0.62.2"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true

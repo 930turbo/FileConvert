@@ -1,0 +1,4 @@
+Copyright (c) 2026 Mach Five Labs, Inc.
+All rights reserved.
+
+This source tree is proprietary and intended for private use by its owner. No license is granted to copy, redistribute, sublicense, publish, or sell this software.

@@ -1,0 +1,16 @@
+[package]
+name = "m5convert-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+image.workspace = true
+pdfium-render.workspace = true
+resvg.workspace = true
+tempfile.workspace = true
+thiserror.workspace = true
+url.workspace = true
+
+[target.'cfg(windows)'.dependencies]
+windows.workspace = true
