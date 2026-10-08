@@ -1,8 +1,8 @@
 # M5Convert
 
-A private, Windows-first local file converter built as a fresh implementation of the workflow requested for this project: select files in Explorer, choose a target format, convert beside the source file, and exit.
+A private, Windows-first local file converter.
 
-## What was removed
+## What There Isn't
 
 There is no:
 
